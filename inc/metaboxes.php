@@ -27,10 +27,24 @@ function wpjmcq_form_picker( $post ) {
      */
     $value = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
 
+    /*
+     * Get list of all ninja forms
+     */
+    $ninja_forms = ninja_forms_get_all_forms();
+
+    /*
+     * Output form with all ninja forms
+     */
     echo '<label for="wpjmcq_chosen_form">Choose a customized form:</label> ';
     echo '<select name="wpjmcq_chosen_form">';
-        echo '<option value="0"></option>';
-        #TODO: get list of all ninja forms and output here
+        echo '<option value="0">Default Application Form</option>';
+        foreach ( $ninja_forms as $ninja_form ) {
+            #TODO: double-check object and key names
+            echo '<option value="' . $ninja_form[ 'id' ] . '"';
+            // make this item default if form has already been chosen
+            if ( get_post_meta( $post->ID, '_wpjmcq_chosen_form', true ) == $ninja_form[ 'id' ]) { echo ' selected'; }
+            echo '>' . $ninja_form[ 'data' ][ 'form_title' ] . '</option>';
+        }
     echo '</select>';
 }
 
