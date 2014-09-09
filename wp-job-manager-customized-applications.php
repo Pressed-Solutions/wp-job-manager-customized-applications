@@ -19,4 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// load backend
+if ( is_admin() ) { require_once( 'inc/metaboxes.php' ); }
+
 ?>
