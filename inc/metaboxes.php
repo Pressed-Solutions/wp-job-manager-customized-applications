@@ -25,7 +25,7 @@ function wpjmcq_form_picker( $post ) {
      * Use get_post_meta() to retrieve an existing value
      * from the database and use the value for the form.
      */
-    $value = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
+    $this_form = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
 
     /*
      * Get list of all ninja forms
@@ -45,6 +45,7 @@ function wpjmcq_form_picker( $post ) {
             echo '>' . $ninja_form[ 'data' ][ 'form_title' ] . '</option>';
         }
     echo '</select>';
+    if ( isset( $this_form ) && ($this_form != 0 ) ) { echo '<p><a href="/wp-admin/admin.php?page=ninja-forms&tab=field_settings&form_id=' . $this_form . '">Edit this form</a></p>'; }
 }
 
 /**
