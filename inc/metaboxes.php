@@ -39,7 +39,6 @@ function wpjmcq_form_picker( $post ) {
     echo '<select name="wpjmcq_chosen_form">';
         echo '<option value="0">Default Application Form</option>';
         foreach ( $ninja_forms as $ninja_form ) {
-            #TODO: double-check object and key names
             echo '<option value="' . $ninja_form[ 'id' ] . '"';
             // make this item default if form has already been chosen
             if ( get_post_meta( $post->ID, '_wpjmcq_chosen_form', true ) == $ninja_form[ 'id' ]) { echo ' selected'; }
