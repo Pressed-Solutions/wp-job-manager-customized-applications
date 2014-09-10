@@ -32,11 +32,13 @@ if ( is_admin() ) {
 
 // load frontend
 if ( ! is_admin() ) {
-    // use our template
+    // call a function to get our template
     add_action( 'job_manager_application_details_email', 'application_form', 20 );
-    // Unhook job manager apply details
+    // unhook job manager apply-via-email details
+    #TODO: figure out how to make this work, unless ninja_form id is 0 (default)
     remove_action( 'job_manager_application_details_email', array( $job_manager->post_types, 'application_details_email' ) );
 
+    // get our template
     function application_form() {
         if ( function_exists( 'get_job_manager_template' ) ) {
             get_job_manager_template( 'application-form.php', NULL, 'wp-job-manager-customized-applications', JOB_MANAGER_CUSTOMIZED_APPLICATIONS_PLUGIN_DIR . '/templates/' );
