@@ -26,8 +26,7 @@ define( 'JOB_MANAGER_CUSTOMIZED_APPLICATIONS_PLUGIN_DIR', untrailingslashit( plu
 // load backend
 if ( is_admin() ) {
     require_once( 'inc/metaboxes.php' );
-    #TODO: customize submission list preview
-    #TODO: customize submission individual preview (ability to add private notes, etc.)
+    #TODO: display NF content in Applications screen
 }
 
 // load frontend

@@ -11,6 +11,17 @@
 		</fieldset>
 	<?php endforeach; ?>
 
+    <?php
+        $this_form = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
+
+        // remove opening and closing <form> tags
+        remove_action('ninja_forms_display_open_form_tag', 'ninja_forms_display_open_form_tag');
+        remove_action('ninja_forms_display_close_form_tag', 'ninja_forms_display_close_form_tag');
+
+        // display custom ninja form
+        if( function_exists( 'ninja_forms_display_form' ) ) { ninja_forms_display_form( $this_form ); }
+    ?>
+
 	<?php do_action( 'job_application_form_fields_end' ); ?>
 
 	<p>
