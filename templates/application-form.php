@@ -1,19 +1,20 @@
-<?php if ( $apply = get_the_job_application_method() ) :
-	wp_enqueue_script( 'wp-job-manager-job-application' );
-	?>
-	<div class="job_application application">
-		<?php do_action( 'job_application_start', $apply ); ?>
+<?php global $post; ?>
+<form class="job-manager-application-form job-manager-form" method="post" enctype="multipart/form-data">
+	<?php do_action( 'job_application_form_fields_start' ); ?>
 
-		<input class="application_button" type="button" value="<?php _e( 'Apply for job', 'wp-job-manager' ); ?>" />
+	<?php foreach ( $application_fields as $key => $field ) : ?>
+		<fieldset class="fieldset-<?php esc_attr_e( $key ); ?>">
+			<label for="<?php esc_attr_e( $key ); ?>"><?php echo $field['label'] . apply_filters( 'submit_job_form_required_label', $field['required'] ? '' : ' <small>' . __( '(optional)', 'wp-job-manager' ) . '</small>', $field ); ?></label>
+			<div class="field <?php echo $field['required'] ? 'required-field' : ''; ?>">
+				<?php get_job_manager_template( 'form-fields/' . $field['type'] . '-field.php', array( 'key' => $key, 'field' => $field ) ); ?>
+			</div>
+		</fieldset>
+	<?php endforeach; ?>
 
-		<div class="application_details">
-			<?php
-				/**
-				 * job_manager_application_details_email or job_manager_application_details_url hook
-				 */
-				do_action( 'job_manager_application_details_' . $apply->type, $apply );
-			?>
-		</div>
-		<?php do_action( 'job_application_end', $apply ); ?>
-	</div>
-<?php endif; ?>
+	<?php do_action( 'job_application_form_fields_end' ); ?>
+
+	<p>
+		<input type="submit" name="wp_job_manager_send_application" value="<?php esc_attr_e( 'Send application', 'wp-job-manager-applications' ); ?>" />
+		<input type="hidden" name="job_id" value="<?php echo absint( $post->ID ); ?>" />
+	</p>
+</form>
