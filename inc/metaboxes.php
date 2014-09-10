@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Adds a box to the main column on the Post and Page edit screens.
+ * Adds a box to the right-hand column on the job edit screen.
  */
 function wpjmcq_add_meta_box() {
     add_meta_box( 'wpjmcq-form-picker', 'Choose a Form', 'wpjmcq_form_picker', 'job_listing', 'side' );
