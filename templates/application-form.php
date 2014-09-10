@@ -1,19 +1,10 @@
-<?php if ( $apply = get_the_job_application_method() ) :
-	wp_enqueue_script( 'wp-job-manager-job-application' );
-	?>
-	<div class="job_application application">
-		<?php do_action( 'job_application_start', $apply ); ?>
+<?php
+global $post;
 
-		<input class="application_button" type="button" value="<?php _e( 'Apply for job', 'wp-job-manager' ); ?>" />
+$this_form = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
 
-		<div class="application_details">
-			<?php
-				/**
-				 * job_manager_application_details_email or job_manager_application_details_url hook
-				 */
-				do_action( 'job_manager_application_details_' . $apply->type, $apply );
-			?>
-		</div>
-		<?php do_action( 'job_application_end', $apply ); ?>
-	</div>
-<?php endif; ?>
+?>
+
+<form class="job-manager-customized-application-form job-manager-form" method="post" enctype="multipart/form-data">
+	<?php if( function_exists( 'ninja_forms_display_form' ) ) { ninja_forms_display_form( $this_form ); } ?>
+</form>
