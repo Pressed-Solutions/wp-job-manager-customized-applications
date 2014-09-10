@@ -14,10 +14,14 @@ Tested up to: 4.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-// Exit if accessed directly
+// exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+// define constants
+define( 'JOB_MANAGER_CUSTOMIZED_APPLICATIONS_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+
 
 // load backend
 if ( is_admin() ) {
@@ -27,5 +31,16 @@ if ( is_admin() ) {
 }
 
 // load frontend
+if ( ! is_admin() ) {
+    // use our template
+    add_action( 'job_manager_application_details_email', 'application_form', 20 );
+    // Unhook job manager apply details
+    remove_action( 'job_manager_application_details_email', array( $job_manager->post_types, 'application_details_email' ) );
 
+    function application_form() {
+        if ( function_exists( 'get_job_manager_template' ) ) {
+            get_job_manager_template( 'application-form.php', NULL, 'wp-job-manager-customized-applications', JOB_MANAGER_CUSTOMIZED_APPLICATIONS_PLUGIN_DIR . '/templates/' );
+        }
+    }
+}
 ?>
