@@ -33,7 +33,7 @@ function wpjmcq_form_picker( $post ) {
     $ninja_forms = ninja_forms_get_all_forms();
 
     /*
-     * Output form with all ninja forms
+     * Output list with all ninja forms
      */
     echo '<label for="wpjmcq_chosen_form">Choose a customized form:</label> ';
     echo '<select name="wpjmcq_chosen_form">';
@@ -104,4 +104,6 @@ function wpjmcq_save_meta_box_data( $post_id ) {
 }
 add_action( 'save_post', 'wpjmcq_save_meta_box_data' );
 
+#TODO: add link to view responses
+#http://wordpress.dev/wp-admin/edit.php?post_status=all&post_type=nf_sub&form_id=
 ?>

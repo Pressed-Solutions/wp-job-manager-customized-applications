@@ -20,6 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // load backend
-if ( is_admin() ) { require_once( 'inc/metaboxes.php' ); }
+if ( is_admin() ) {
+    require_once( 'inc/metaboxes.php' );
+    #TODO: customize submission list preview
+    #TODO: customize submission individual preview (ability to add private notes, etc.)
+}
+
+// load frontend
 
 ?>
