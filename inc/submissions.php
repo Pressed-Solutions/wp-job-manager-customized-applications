@@ -39,7 +39,8 @@ function wpjmcq_custom_submission( $post ) {
             $results_query = "SELECT id, data FROM " . $wpdb->prefix . "ninja_forms_fields WHERE id = " . ltrim( $this_key, '_field_' );
             $key_array = $wpdb->get_results( $results_query );
             $key_id = $key_array[0]->id;
-            $key_label = unserialize( $key_array[0]->data )['label'];
+            $key_label_array = unserialize( $key_array[0]->data );
+            $key_label = $key_label_array['label'];
             
             // get data for this field
             $key_data = get_post_meta( ( $post->ID - 1 ), $this_key, true );
