@@ -10,3 +10,6 @@ This plugin brings [Ninja Forms](https://wordpress.org/plugins/ninja-forms/) and
 2. Create a Ninja form for each job application that needs customized application fields; make sure to name it descriptively so you can choose it from a list easily. You only need to create the custom question fields; the Job Manager Applications plugin will ask for their name, email address, cover letter, and resume.
 3. Create the job posting and choose the Ninja form from the dropdown list on the right-hand side of the page.
 4. Copy the `templates/application-form.php` to the `/wp-content/plugins/wp-job-manager-applications/templates/` folder, replacing the existing file. Without this step, the Ninja Form content will not be displayed.
+
+#ToDo
+As of now, this plugin relies on the Ninja Form submission always being the post ID immediately preceding the WPJB application; in a high-use situation, this may not always be the case. See [commit f01c5d](https://github.com/macbookandrew/wp-job-manager-customized-applications/commit/f01c5d903c9a8bfc0b687777283dcddb835bdccc) for the first steps towards a better implementation.
