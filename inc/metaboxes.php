@@ -103,6 +103,3 @@ function wpjmcq_save_meta_box_data( $post_id ) {
 	update_post_meta( $post_id, '_wpjmcq_chosen_form', $my_data );
 }
 add_action( 'save_post', 'wpjmcq_save_meta_box_data' );
-
-#TODO: add link to view responses
-#http://wordpress.dev/wp-admin/edit.php?post_status=all&post_type=nf_sub&form_id=

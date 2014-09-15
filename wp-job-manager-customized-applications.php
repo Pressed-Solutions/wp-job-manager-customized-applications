@@ -26,7 +26,7 @@ define( 'JOB_MANAGER_CUSTOMIZED_APPLICATIONS_PLUGIN_DIR', untrailingslashit( plu
 // load backend
 if ( is_admin() ) {
     require_once( 'inc/metaboxes.php' );
-    #TODO: display NF content in Applications screen
+    require_once( 'inc/submissions.php' );
 }
 
 // load frontend
