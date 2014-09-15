@@ -46,6 +46,7 @@ function wpjmcq_form_picker( $post ) {
         }
     echo '</select>';
     if ( isset( $this_form ) && ($this_form != 0 ) ) { echo '<p><a href="/wp-admin/admin.php?page=ninja-forms&tab=field_settings&form_id=' . $this_form . '">Edit this form</a></p>'; }
+    else { echo '<p><a target="_blank" href="/wp-admin/admin.php?page=ninja-forms&form_id=new&tab=form_settings">Create a new form</a></p><p style="font-size: smaller"><strong>Note:</strong> after creating your customized form, come back to this page, click the blue <strong>Publish</strong> button above to save this posting, and then choose your customized form.</p>'; }
 }
 
 /**
