@@ -8,4 +8,4 @@ This plugin brings [Ninja Forms](https://wordpress.org/plugins/ninja-forms/) and
 #Usage Instructions
 1. Install both plugins.
 2. Create a Ninja form for each job application that needs customized application fields; make sure to name it descriptively so you can choose it from a list easily.
-3. Create the job posting and choose the Ninja form from the dropdown list below the **Job Data** section.
+3. Create the job posting and choose the Ninja form from the dropdown list on the right-hand side of the page.
