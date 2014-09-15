@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Adds a box to the main column on the Post and Page edit screens.
  */
 function wpjmcq_add_meta_box() {
-    add_meta_box( 'wpjmcq-form-picker', 'Choose a Form', 'wpjmcq_form_picker', 'job_listing', 'side' );
+    add_meta_box( 'wpjmcq-form-picker', 'Choose a Custom Form', 'wpjmcq_form_picker', 'job_listing', 'side' );
 }
 add_action( 'add_meta_boxes', 'wpjmcq_add_meta_box' );
 
