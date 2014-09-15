@@ -32,3 +32,6 @@ if ( is_admin() ) {
 // load frontend
 if ( ! is_admin() ) {
 }
+
+#TODO: save the IP address and server request time custom fields to database
+#TODO: match Ninja Form and WPJB submissions using IP/time rather than relying on post IDs to be sequential
