@@ -3,7 +3,7 @@
 Plugin Name: WP Job Manager - Customized Applications
 Plugin URI: https://github.com/macbookandrew/wp-job-manager-customized-applications
 Description: Allows the creation of customized application forms for each job posting. Requires WP Job Manager - Applications plugin (https://wpjobmanager.com/add-ons/applications/)
-Version: 1.0
+Version: 1.0.1
 Author: Andrew Minion
 Author URI: http://andrewrminion.com
 Requires at least: 3.8
