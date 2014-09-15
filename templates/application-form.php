@@ -14,6 +14,12 @@
     <?php
         $this_form = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
 
+        // add custom field to match submissions
+        function add_match_data() {
+            echo '<input type="hidden" name="_request_time" value="' . $_SERVER["REQUEST_TIME_FLOAT"] . '" />' . "\n";
+            echo '<input type="hidden" name="_ip_address" value="' . $_SERVER["REMOTE_ADDR"] . '" />';
+        }
+        add_action( 'ninja_forms_display_after_fields', 'add_match_data' );
         // remove opening and closing <form> tags
         remove_action('ninja_forms_display_open_form_tag', 'ninja_forms_display_open_form_tag');
         remove_action('ninja_forms_display_close_form_tag', 'ninja_forms_display_close_form_tag');
@@ -25,6 +31,8 @@
 	<?php do_action( 'job_application_form_fields_end' ); ?>
 
 	<p>
+	    <input type="hidden" name="_request_time" value="<?php echo $_SERVER["REQUEST_TIME_FLOAT"]; ?>" />
+	    <input type="hidden" name="_ip_address" value="<?php echo $_SERVER["REMOTE_ADDR"]; ?>" />
 		<input type="submit" name="wp_job_manager_send_application" value="<?php esc_attr_e( 'Send application', 'wp-job-manager-applications' ); ?>" />
 		<input type="hidden" name="job_id" value="<?php echo absint( $post->ID ); ?>" />
 	</p>

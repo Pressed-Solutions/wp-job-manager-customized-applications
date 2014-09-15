@@ -33,3 +33,6 @@ if ( ! is_admin() ) {
 }
 
 require_once( 'inc/wp-job-manager-applications-functions.php' );
+
+#TODO: save the IP address and server request time custom fields to database
+#TODO: match Ninja Form and WPJB submissions using IP/time rather than relying on post IDs to be sequential
