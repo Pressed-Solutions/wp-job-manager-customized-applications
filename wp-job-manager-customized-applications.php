@@ -32,4 +32,3 @@ if ( is_admin() ) {
 // load frontend
 if ( ! is_admin() ) {
 }
-?>

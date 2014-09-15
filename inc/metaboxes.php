@@ -106,4 +106,3 @@ add_action( 'save_post', 'wpjmcq_save_meta_box_data' );
 
 #TODO: add link to view responses
 #http://wordpress.dev/wp-admin/edit.php?post_status=all&post_type=nf_sub&form_id=
-?>
