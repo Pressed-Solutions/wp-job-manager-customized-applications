@@ -78,13 +78,13 @@ function wpjmcq_save_meta_box_data( $post_id ) {
 	// Check the user's permissions.
 	if ( isset( $_POST['post_type'] ) && 'job_listing' == $_POST['post_type'] ) {
 
-		if ( ! current_user_can( 'edit_page', $post_id ) ) {
+		if ( ! current_user_can( 'edit_pages', $post_id ) ) {
 			return;
 		}
 
 	} else {
 
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		if ( ! current_user_can( 'edit_posts', $post_id ) ) {
 			return;
 		}
 	}
