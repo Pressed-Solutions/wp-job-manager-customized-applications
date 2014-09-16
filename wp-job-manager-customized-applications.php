@@ -19,16 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// define constants
-define( 'JOB_MANAGER_CUSTOMIZED_APPLICATIONS_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-
-
 // load backend
 if ( is_admin() ) {
     require_once( 'inc/metaboxes.php' );
     require_once( 'inc/submissions.php' );
-}
-
-// load frontend
-if ( ! is_admin() ) {
 }
