@@ -23,4 +23,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( is_admin() ) {
     require_once( 'inc/metaboxes.php' );
     require_once( 'inc/submissions.php' );
+    require_once( 'inc/company-info.php' );
 }
