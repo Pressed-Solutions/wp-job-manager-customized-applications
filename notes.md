@@ -1,7 +1,4 @@
-#Questions
-
 #To do
-- Remove SEO/SEO title/etc. from job listings list
 - Set defaults for company info
     - Add FB alongside Twitter
     - Prefill email with cnkd@heits.com
@@ -15,5 +12,10 @@
     - maybe
     - hired
 - Set up user role to manage jobs and nothing else
-- List of all jobs
-- `.module.blue` line 565: fix background color (use unprefixed or straight color)
+
+#Done
+- styles.css: `.module.blue`, line 565: fix background color (use unprefixed or straight color)
+- Remove SEO/SEO title/etc. from job listings list
+    ![Remove SEO info](https://www.evernote.com/shard/s26/sh/b62473c8-9fc5-42a2-87ef-da1ae27ab18e/19ee0cf8e2abfe2b4e97c740cc60728e/deep/0/Jobs---Heits-Building-Services-Cincinnati-Northern-Kentucky-Dayton---WordPress.png)
+- List all jobs on [frontend](http://www.heits-cnkd.com/jobs/)
+    - **Note:** be sure to set a category for each new job or the job won’t show up at first
