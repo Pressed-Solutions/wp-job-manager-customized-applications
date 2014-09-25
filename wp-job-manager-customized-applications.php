@@ -9,9 +9,9 @@ Author URI: http://andrewrminion.com
 Requires at least: 3.8
 Tested up to: 4.0
 
-	Copyright: 2014 Andrew Minion
-	License: GNU General Public License v3.0
-	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Copyright: 2014 Andrew Minion
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 // exit if accessed directly
