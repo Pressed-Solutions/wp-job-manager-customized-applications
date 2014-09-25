@@ -45,7 +45,7 @@ public function job_dashboard_customized( $atts ) {
     echo $this->job_dashboard_message;
 
     $job_dashboard_columns = apply_filters( 'job_manager_job_dashboard_columns', array(
-        'job_title' => __( 'Title', 'wp-job-manager' ),
+        'job_title' => __( 'Job Title', 'wp-job-manager' ),
         'filled'    => __( 'Filled?', 'wp-job-manager' ),
         'date'      => __( 'Date Posted', 'wp-job-manager' ),
         'expires'   => __( 'Date Expires', 'wp-job-manager' )
