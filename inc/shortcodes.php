@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-public function job_dashboard_customized( $atts ) {
+function job_dashboard_customized( $atts ) {
     if ( ! is_user_logged_in() ) {
         return __( 'You need to be signed in to manage your listings.', 'wp-job-manager' );
     }
@@ -56,4 +56,8 @@ public function job_dashboard_customized( $atts ) {
     return ob_get_clean();
 }
 
-add_shortcode( 'job_dashboard', 'job_dashboard_customized' );
+// load shortcodes after plugins are loaded to override the built-in shortcode
+add_action( 'plugins_loaded', 'wpjmcq_load_customized_shortcode' );
+function wpjmcq_load_customized_shortcode() {
+    add_shortcode( 'job_dashboard', 'job_dashboard_customized' );
+}
