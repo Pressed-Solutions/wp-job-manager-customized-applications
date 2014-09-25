@@ -25,3 +25,12 @@ if ( is_admin() ) {
     require_once( 'inc/submissions.php' );
     require_once( 'inc/company-info.php' );
 }
+
+// load frontend
+if ( ! is_admin() ) {
+    // load shortcodes after plugins are loaded to override the built-in shortcode
+    add_action( 'plugins_loaded', 'wpjmcq_load_customized_shortcode' );
+    function wpjmcq_load_customized_shortcode() {
+        require_once( 'inc/shortcodes.php' );
+    }
+}
