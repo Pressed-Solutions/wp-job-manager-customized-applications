@@ -42,8 +42,6 @@ function job_dashboard_customized( $atts ) {
 
     $jobs = new WP_Query;
 
-    echo $this->job_dashboard_message;
-
     $job_dashboard_columns = apply_filters( 'job_manager_job_dashboard_columns', array(
         'job_title' => __( 'Job Title', 'wp-job-manager' ),
         'filled'    => __( 'Filled?', 'wp-job-manager' ),
