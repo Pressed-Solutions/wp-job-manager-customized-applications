@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // load backend
 if ( is_admin() ) {
     require_once( 'inc/metaboxes.php' );
-    require_once( 'inc/submissions.php' );
+    require_once( 'inc/submissions-backend.php' );
     require_once( 'inc/company-info.php' );
 }
 
