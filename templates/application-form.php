@@ -1,4 +1,12 @@
-<?php global $post; ?>
+<?php
+global $post;
+
+// set variables for form submission matching
+if ( ! is_null( $_SERVER["REQUEST_TIME_FLOAT"] ) ) { $server_time = $_SERVER["REQUEST_TIME_FLOAT"]; }
+else { $server_time = $_SERVER["REQUEST_TIME"]; }
+$remote_ip_address = $_SERVER["REMOTE_ADDR"];
+
+?>
 <form class="job-manager-application-form job-manager-form" method="post" enctype="multipart/form-data">
 	<?php do_action( 'job_application_form_fields_start' ); ?>
 
@@ -16,8 +24,12 @@
 
         // add custom field to match submissions
         function add_match_data() {
-            echo '<input type="hidden" name="_request_time" value="' . $_SERVER["REQUEST_TIME_FLOAT"] . '" />' . "\n";
-            echo '<input type="hidden" name="_ip_address" value="' . $_SERVER["REMOTE_ADDR"] . '" />';
+            if ( ! is_null( $_SERVER["REQUEST_TIME_FLOAT"] ) ) { $server_time = $_SERVER["REQUEST_TIME_FLOAT"]; }
+            else { $server_time = $_SERVER["REQUEST_TIME"]; }
+            $remote_ip_address = $_SERVER["REMOTE_ADDR"];
+
+            echo '<input type="hidden" name="_request_time" value="' . $server_time . '" />' . "\n";
+            echo '<input type="hidden" name="_ip_address" value="' . $remote_ip_address . '" />';
         }
         add_action( 'ninja_forms_display_after_fields', 'add_match_data' );
         // remove opening and closing <form> tags
@@ -31,8 +43,8 @@
 	<?php do_action( 'job_application_form_fields_end' ); ?>
 
 	<p>
-	    <input type="hidden" name="_request_time" value="<?php echo $_SERVER["REQUEST_TIME_FLOAT"]; ?>" />
-	    <input type="hidden" name="_ip_address" value="<?php echo $_SERVER["REMOTE_ADDR"]; ?>" />
+	    <input type="hidden" name="_request_time" value="<?php echo $server_time; ?>" />
+	    <input type="hidden" name="_ip_address" value="<?php echo $remote_ip_address; ?>" />
 		<input type="submit" name="wp_job_manager_send_application" value="<?php esc_attr_e( 'Send application', 'wp-job-manager-applications' ); ?>" />
 		<input type="hidden" name="job_id" value="<?php echo absint( $post->ID ); ?>" />
 	</p>
