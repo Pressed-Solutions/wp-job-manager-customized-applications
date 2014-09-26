@@ -52,5 +52,3 @@ function wpjmcq_custom_submission( $post ) {
     }
     
 }
-
-#NOTE: relies on the Ninja Form submission always being the post ID immediately preceding the WPJB application; in a high-use situation, this may not always be the case. See [commit f01c5d](https://github.com/macbookandrew/wp-job-manager-customized-applications/commit/f01c5d903c9a8bfc0b687777283dcddb835bdccc) for the first steps towards a better implementation.

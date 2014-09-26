@@ -34,5 +34,25 @@ if ( ! is_admin() ) {
 
 require_once( 'inc/wp-job-manager-applications-functions.php' );
 
-#TODO: save the IP address and server request time custom fields to database
-#TODO: match Ninja Form and WPJB submissions using IP/time rather than relying on post IDs to be sequential
+// save custom matching data
+function custom_values_register(){
+    add_action( 'ninja_forms_post_process', 'process_custom_extra_value' );
+}
+add_action( 'init', 'custom_values_register' );
+ 
+function process_custom_extra_value() {
+
+    // make sure we're referencing the global variable.
+	global $ninja_forms_processing;
+    
+    // get all Ninja Forms fields
+    $all_fields = $ninja_forms_processing->get_all_fields();
+    
+    // add all Ninja Forms fields to global array for submission as metadata alongside other application data
+    $GLOBALS["nf_content"] = array();
+    foreach ( $all_fields as $key => $value ) {
+        $GLOBALS["nf_content"][$key] = $value;
+    }
+}
+
+#TODO: display additional NF-supplied metadata on frontend and backend

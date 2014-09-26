@@ -43,8 +43,8 @@ $remote_ip_address = $_SERVER["REMOTE_ADDR"];
 	<?php do_action( 'job_application_form_fields_end' ); ?>
 
 	<p>
-	    <input type="hidden" name="_request_time" value="<?php echo $server_time; ?>" />
-	    <input type="hidden" name="_ip_address" value="<?php echo $remote_ip_address; ?>" />
+	    <input type="hidden" name="wpjb_request_time" value="<?php echo $server_time; ?>" />
+	    <input type="hidden" name="wpjb_ip_address" value="<?php echo $remote_ip_address; ?>" />
 		<input type="submit" name="wp_job_manager_send_application" value="<?php esc_attr_e( 'Send application', 'wp-job-manager-applications' ); ?>" />
 		<input type="hidden" name="job_id" value="<?php echo absint( $post->ID ); ?>" />
 	</p>
