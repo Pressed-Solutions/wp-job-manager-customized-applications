@@ -35,6 +35,9 @@ if ( ! function_exists( 'create_job_application' ) ) {
 			update_post_meta( $application_id, '_candidate_user_id', get_current_user_id() );
 			update_post_meta( $application_id, '_rating', 0 );
 
+			update_post_meta( $application_id, '_request_time', 0 );
+			update_post_meta( $application_id, '_ip_address', 0 );
+
 			if ( $meta ) {
 				foreach ( $meta as $key => $value ) {
 					update_post_meta( $application_id, $key, $value );
