@@ -29,4 +29,7 @@ if ( is_admin() ) {
 // load frontend
 if ( ! is_admin() ) {
     require_once( 'inc/shortcodes.php' );
+    require_once( 'inc/submissions-frontend.php' );
 }
+
+require_once( 'inc/wp-job-manager-applications-functions.php' );
