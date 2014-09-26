@@ -38,7 +38,12 @@ if ( ! function_exists( 'create_job_application' ) ) {
 
             // insert Ninja Form content as post meta
             foreach ( $GLOBALS["nf_content"] as $nf_key => $nf_value ) {
-                update_post_meta( $application_id, '_field_' . $nf_key, wp_kses_post( $nf_value ) );
+                // get field label
+                $nf_field_info = ninja_forms_get_field_by_id( $nf_key );
+                $nf_label = $nf_field_info['data']['label'];
+
+                // add to database
+                update_post_meta( $application_id, $nf_label, wp_kses_post( $nf_value ) );
             }
 
 			if ( $meta ) {

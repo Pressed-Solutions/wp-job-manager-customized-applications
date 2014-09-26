@@ -29,7 +29,6 @@ if ( is_admin() ) {
 // load frontend
 if ( ! is_admin() ) {
     require_once( 'inc/shortcodes.php' );
-    require_once( 'inc/submissions-frontend.php' );
 }
 
 require_once( 'inc/wp-job-manager-applications-functions.php' );
@@ -56,3 +55,4 @@ function process_custom_extra_value() {
 }
 
 #TODO: display additional NF-supplied metadata on frontend and backend
+#TODO: add `.job-application-meta dt { font-weight: bold; }` rule
