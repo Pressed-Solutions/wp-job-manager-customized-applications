@@ -1,4 +1,5 @@
 <?php
+#TODO: override the main plugin's function rather than replacing its functions.php file
 if ( ! function_exists( 'create_job_application' ) ) {
 
 	/**
@@ -35,9 +36,6 @@ if ( ! function_exists( 'create_job_application' ) ) {
 			update_post_meta( $application_id, '_candidate_user_id', get_current_user_id() );
 			update_post_meta( $application_id, '_rating', 0 );
 
-			update_post_meta( $application_id, '_request_time', wp_kses_post( $_POST['wpjb_request_time'] ) );
-			update_post_meta( $application_id, '_ip_address',   wp_kses_post( $_POST['wpjb_ip_address'] ) );
-            
             // insert Ninja Form content as post meta
             foreach ( $GLOBALS["nf_content"] as $nf_key => $nf_value ) {
                 update_post_meta( $application_id, '_field_' . $nf_key, wp_kses_post( $nf_value ) );
