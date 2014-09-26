@@ -60,4 +60,5 @@ function process_custom_extra_value() {
     }
 }
 
-#TODO: display additional NF-supplied metadata on frontend and backend
+#TODO: display additional NF-supplied metadata on backend?
+#FIXME: add NF to Linked-In submission
