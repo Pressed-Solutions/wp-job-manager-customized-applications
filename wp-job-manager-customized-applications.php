@@ -29,9 +29,15 @@ if ( is_admin() ) {
 // load frontend
 if ( ! is_admin() ) {
     require_once( 'inc/shortcodes.php' );
+    add_action( 'wp_head', 'add_dashboard_style' );
 }
 
 require_once( 'inc/wp-job-manager-applications-functions.php' );
+
+// add job dashboard style
+function add_dashboard_style() {
+    echo '<style>.job-application-meta dt {font-weight: bold;}</style>';
+}
 
 // save custom matching data
 function custom_values_register(){
@@ -55,4 +61,3 @@ function process_custom_extra_value() {
 }
 
 #TODO: display additional NF-supplied metadata on frontend and backend
-#TODO: add `.job-application-meta dt { font-weight: bold; }` rule
