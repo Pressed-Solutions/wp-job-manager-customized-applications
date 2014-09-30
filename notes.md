@@ -3,7 +3,8 @@
 - Applicants report: change status list
     - new
     - promising
-    - maybe
+    - interviewed
+    - offer
     - hired
 - Set up user role to manage jobs and nothing else
 - Add white background immediately below menubar to hide man’s waist
