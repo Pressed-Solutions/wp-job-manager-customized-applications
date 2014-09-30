@@ -1,7 +1,4 @@
 #To do
-- Look into auto-posting to FB fan page
-- Set up user role to manage jobs and nothing else
-- Add white background immediately below menubar to hide man’s waist
 
 #Done
 - styles.css: `.module.blue`, line 565: fix background color (use unprefixed or straight color)
@@ -22,3 +19,6 @@
     - interviewed
     - offer
     - hired
+- Add white background immediately below menubar to hide man’s waist
+- Set up user role to manage jobs and nothing else
+- Look into auto-posting to FB fan page: use [NextScripts SNAP](www.nextscripts.com/instructions/facebook-social-networks-auto-poster-setup-installation)
