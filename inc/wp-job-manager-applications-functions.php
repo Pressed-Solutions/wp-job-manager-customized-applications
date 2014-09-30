@@ -141,13 +141,5 @@ function register_custom_job_status() {
         'show_in_admin_status_list' => true,
         'label_count'               => _n_noop( 'Promising <span class="count">(%s)</span>', 'Promising <span class="count">(%s)</span>', 'wp-job-manager' ),
     ) );
-    register_post_status( 'maybe', array(
-        'label'                     => _x( 'Maybe', 'job_application', 'wp-job-manager-applications' ),
-        'public'                    => true,
-        'exclude_from_search'       => false,
-        'show_in_admin_all_list'    => true,
-        'show_in_admin_status_list' => true,
-        'label_count'               => _n_noop( 'Maybe <span class="count">(%s)</span>', 'Maybe <span class="count">(%s)</span>', 'wp-job-manager' ),
-    ) );
 }
 add_action( 'init', 'register_custom_job_status' );

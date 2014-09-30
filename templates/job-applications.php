@@ -7,6 +7,7 @@
 				<select name="application_status">
 					<option value=""><?php _e( 'Filter by status', 'wp-job-manager-applications' ); ?>...</option>
 					<option value="new" <?php selected( $application_status, 'new' ); ?>><?php _e( 'New', 'wp-job-manager-applications' ); ?></option>
+					<option value="promising" <?php selected( $application_status, 'promising' ); ?>><?php _e( 'Promising', 'wp-job-manager-applications' ); ?></option>
 					<option value="interviewed" <?php selected( $application_status, 'interviewed' ); ?>><?php _e( 'Interviewed', 'wp-job-manager-applications' ); ?></option>
 					<option value="offer" <?php selected( $application_status, 'offer' ); ?>><?php _e( 'Offer extended', 'wp-job-manager-applications' ); ?></option>
 					<option value="hired" <?php selected( $application_status, 'hired' ); ?>><?php _e( 'Hired', 'wp-job-manager-applications' ); ?></option>
