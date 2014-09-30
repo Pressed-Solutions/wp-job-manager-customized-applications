@@ -131,15 +131,27 @@ if ( ! function_exists( 'get_job_application_count' ) ) {
 	}
 }
 
-// register post status
-function register_custom_job_status() {
-    register_post_status( 'promising', array(
-        'label'                     => _x( 'Promising', 'job_application', 'wp-job-manager-applications' ),
-        'public'                    => true,
-        'exclude_from_search'       => false,
-        'show_in_admin_all_list'    => true,
-        'show_in_admin_status_list' => true,
-        'label_count'               => _n_noop( 'Promising <span class="count">(%s)</span>', 'Promising <span class="count">(%s)</span>', 'wp-job-manager' ),
-    ) );
+if ( ! function_exists( 'user_has_applied_for_job' ) ) {
+
+	/**
+	 * See if a user has already appled for a job
+	 * @param  int $user_id
+	 * @param  int $job_id
+	 * @return bool
+	 */
+	function user_has_applied_for_job( $user_id, $job_id ) {
+		return sizeof( get_posts( array(
+			'post_type'      => 'job_application',
+			'post_status'    => array( 'publish', 'new', 'promising', 'interviewed', 'offer', 'hired', 'archived' ),
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'post_parent'    => $job_id,
+			'meta_query'     => array(
+				array(
+					'key' => '_candidate_user_id',
+					'value' => absint( $user_id )
+				)
+			)
+		) ) );
+	}
 }
-add_action( 'init', 'register_custom_job_status' );
