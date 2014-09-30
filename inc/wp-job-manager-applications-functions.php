@@ -38,6 +38,9 @@ if ( ! function_exists( 'create_job_application' ) ) {
 
             // insert Ninja Form content as post meta
             foreach ( $GLOBALS["nf_content"] as $nf_key => $nf_value ) {
+                // strip longer key name from LinkedIn submissions
+                $nf_key = str_replace( 'ninja_forms_field_', '', $nf_key );
+
                 // get field label
                 $nf_field_info = ninja_forms_get_field_by_id( $nf_key );
                 $nf_label = $nf_field_info['data']['label'];
