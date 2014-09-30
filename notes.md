@@ -1,6 +1,5 @@
 #To do
 - Look into auto-posting to FB fan page
-- Sort applicants list by whether or not they answer custom questions
 - Applicants report: change status list
     - new
     - promising
@@ -21,3 +20,4 @@
 - Applicants report: add link to view and download resume on application full page
 - Add apply with LinkedIn plugin?
 - Applicants report: how to change status? let client change status
+- Sort applicants list by whether or not they answer custom questions

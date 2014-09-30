@@ -25,10 +25,22 @@
 					<input type="hidden" name="page_id" value="<?php echo absint( $_GET['page_id'] ); ?>" />
 				<?php endif; ?>
 			</p>
+			<p style="width: 100%;">
+			    <label for="hide-lazy-applicants"><input type="checkbox" name="hide-lazy-applicants" id="hideLazyApplicants" checked> Hide applications without answers to custom questions?</label>
+			</p>
 		</form>
 		<ul class="job-applications">
 			<?php foreach ( $applications as $application ) : ?>
-				<li class="job-application" id="application-<?php esc_attr_e( $application->ID ); ?>">
+            <?php
+                $meta = get_post_custom( $application->ID );
+                foreach ( $meta as $key => $value ) {
+                    if ( strpos( $key, '_' ) === 0 ) { continue; }
+                    if ( $value[0] == NULL ) { $lazy_applicant = true; }
+                    else { $lazy_applicant = false; }
+                }
+            ?>
+
+				<li class="job-application<?php if ( $lazy_applicant == true ) { echo ' no-custom-question-response'; } ?>" id="application-<?php esc_attr_e( $application->ID ); ?>">
 					<header>
 						<?php job_application_header( $application ); ?>
 					</header>

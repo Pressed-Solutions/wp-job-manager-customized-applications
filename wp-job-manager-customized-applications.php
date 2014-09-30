@@ -30,13 +30,24 @@ if ( is_admin() ) {
 if ( ! is_admin() ) {
     require_once( 'inc/shortcodes.php' );
     add_action( 'wp_head', 'add_dashboard_style' );
+    add_action( 'wp_footer', 'add_dashboard_scripts' );
 }
 
 require_once( 'inc/wp-job-manager-applications-functions.php' );
 
-// add job dashboard style
+// add job dashboard styles and scripts
 function add_dashboard_style() {
-    echo '<style>.job-application-meta dt {font-weight: bold;}</style>';
+    echo '<style>
+        .job-application-meta dt {font-weight: bold;}
+        .no-custom-question-response {display: none;}
+    </style>';
+}
+function add_dashboard_scripts() {
+    echo "<script>
+        jQuery('#hideLazyApplicants').click(function(){
+            jQuery('.job-application').toggleClass('no-custom-question-response');
+        })
+    </script>";
 }
 
 // save custom matching data
