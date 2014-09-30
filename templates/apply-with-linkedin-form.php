@@ -37,6 +37,7 @@
 		</dl>
 
     <?php
+        global $post;
         $this_form = get_post_meta( $post->ID, '_wpjmcq_chosen_form', true );
 
         // remove opening and closing <form> tags
