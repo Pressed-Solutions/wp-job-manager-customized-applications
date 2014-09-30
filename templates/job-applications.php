@@ -34,6 +34,7 @@
 			<?php foreach ( $applications as $application ) : ?>
             <?php
                 $meta = get_post_custom( $application->ID );
+                $lazy_applicant = false;
                 foreach ( $meta as $key => $value ) {
                     if ( strpos( $key, '_' ) === 0 ) { continue; }
                     if ( $value[0] == NULL ) { $lazy_applicant = true; }
