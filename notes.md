@@ -1,11 +1,5 @@
 #To do
 - Look into auto-posting to FB fan page
-- Applicants report: change status list
-    - new
-    - promising
-    - interviewed
-    - offer
-    - hired
 - Set up user role to manage jobs and nothing else
 - Add white background immediately below menubar to hide man’s waist
 
@@ -22,3 +16,9 @@
 - Add apply with LinkedIn plugin?
 - Applicants report: how to change status? let client change status
 - Sort applicants list by whether or not they answer custom questions
+- Applicants report: change status list
+    - new
+    - promising
+    - interviewed
+    - offer
+    - hired
