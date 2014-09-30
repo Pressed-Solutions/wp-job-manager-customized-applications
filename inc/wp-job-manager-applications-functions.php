@@ -112,6 +112,7 @@ if ( ! function_exists( 'create_job_application' ) ) {
 	}
 }
 
+// count jobs for dashboard
 if ( ! function_exists( 'get_job_application_count' ) ) {
 
 	/**
@@ -122,10 +123,31 @@ if ( ! function_exists( 'get_job_application_count' ) ) {
 	function get_job_application_count( $job_id ) {
 		return sizeof( get_posts( array(
 			'post_type'      => 'job_application',
-			'post_status'    => array( 'publish', 'new', 'interviewed', 'offer', 'hired', 'archived' ),
+			'post_status'    => array( 'publish', 'new', 'interviewed', 'promising', 'offer', 'maybe', 'hired', 'archived' ),
 			'posts_per_page' => -1,
 			'fields'         => 'ids',
 			'post_parent'    => $job_id
 		) ) );
 	}
 }
+
+// register post status
+function register_custom_job_status() {
+    register_post_status( 'promising', array(
+        'label'                     => _x( 'Promising', 'job_application', 'wp-job-manager-applications' ),
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Promising <span class="count">(%s)</span>', 'Promising <span class="count">(%s)</span>', 'wp-job-manager' ),
+    ) );
+    register_post_status( 'maybe', array(
+        'label'                     => _x( 'Maybe', 'job_application', 'wp-job-manager-applications' ),
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Maybe <span class="count">(%s)</span>', 'Maybe <span class="count">(%s)</span>', 'wp-job-manager' ),
+    ) );
+}
+add_action( 'init', 'register_custom_job_status' );
