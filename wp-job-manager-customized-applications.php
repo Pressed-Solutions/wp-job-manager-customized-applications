@@ -70,6 +70,3 @@ function process_custom_extra_value() {
         $GLOBALS["nf_content"][$key] = $value;
     }
 }
-
-#TODO: display additional NF-supplied metadata on backend?
-#FIXME: add NF to Linked-In submission
