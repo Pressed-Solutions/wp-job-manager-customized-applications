@@ -20,7 +20,7 @@ function wpjmcq_autofill_data_fields( $fields ) {
     $fields['_company_tagline']['value'] = "Let us earn your trust!";
     $fields['_company_twitter']['value'] = "@HEITSCNKD";
     $fields['_company_facebook']['value'] = "https://www.facebook.com/pages/HEITS-Building-Services-Cincinnati-Northern-Kentucky-Dayton/115675811778223";
-    $fields['_company_logo']['value'] = get_stylesheet_directory_uri() . "/img/logo-standalone.png";
+    $fields['_company_logo']['value'] = get_stylesheet_directory_uri() . "/img/logo-standalone.svg";
 
     // And return the modified fields
     return $fields;
