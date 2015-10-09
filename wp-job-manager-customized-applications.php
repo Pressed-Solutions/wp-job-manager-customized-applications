@@ -31,11 +31,12 @@ if ( ! is_admin() ) {
     require_once( 'inc/shortcodes.php' );
     add_action( 'wp_head', 'add_dashboard_style' );
     add_action( 'wp_footer', 'add_dashboard_scripts' );
+    add_action( 'wp_enqueue_scripts', 'add_form_fix_js' );
 }
 
 require_once( 'inc/wp-job-manager-applications-functions.php' );
 
-// add job dashboard styles and scripts
+// add styles and scripts
 function add_dashboard_style() {
     echo '<style>
         .job-application-meta dt {font-weight: bold;}
@@ -48,6 +49,12 @@ function add_dashboard_scripts() {
             jQuery('.job-application').toggleClass('no-custom-question-response');
         })
     </script>";
+}
+function add_form_fix_js() {
+    wp_register_script( 'heits-job-form-fixes', plugin_dir_url( __FILE__ ) . 'js/form-fixes.min.js', array( 'jquery' ), '1.0' );
+    if ( 'job_listing' == get_post_type() ) {
+        wp_enqueue_script( 'heits-job-form-fixes' );
+    }
 }
 
 // save custom matching data
