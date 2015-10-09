@@ -16,7 +16,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 // exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 
 // load backend
@@ -55,15 +55,15 @@ function custom_values_register(){
     add_action( 'ninja_forms_post_process', 'process_custom_extra_value' );
 }
 add_action( 'init', 'custom_values_register' );
- 
+
 function process_custom_extra_value() {
 
     // make sure we're referencing the global variable.
-	global $ninja_forms_processing;
-    
+    global $ninja_forms_processing;
+
     // get all Ninja Forms fields
     $all_fields = $ninja_forms_processing->get_all_fields();
-    
+
     // add all Ninja Forms fields to global array for submission as metadata alongside other application data
     $GLOBALS["nf_content"] = array();
     foreach ( $all_fields as $key => $value ) {

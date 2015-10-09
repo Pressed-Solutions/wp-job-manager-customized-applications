@@ -56,51 +56,51 @@ function wpjmcq_form_picker( $post ) {
  */
 function wpjmcq_save_meta_box_data( $post_id ) {
 
-	/*
-	 * We need to verify this came from our screen and with proper authorization,
-	 * because the save_post action can be triggered at other times.
-	 */
+    /*
+     * We need to verify this came from our screen and with proper authorization,
+     * because the save_post action can be triggered at other times.
+     */
 
-	// Check if our nonce is set.
-	if ( ! isset( $_POST['wpjmcq_form_picker_meta_box_nonce'] ) ) {
-		return;
-	}
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['wpjmcq_form_picker_meta_box_nonce'] ) ) {
+        return;
+    }
 
-	// Verify that the nonce is valid.
-	if ( ! wp_verify_nonce( $_POST['wpjmcq_form_picker_meta_box_nonce'], 'wpjmcq_form_picker_meta_box' ) ) {
-		return;
-	}
+    // Verify that the nonce is valid.
+    if ( ! wp_verify_nonce( $_POST['wpjmcq_form_picker_meta_box_nonce'], 'wpjmcq_form_picker_meta_box' ) ) {
+        return;
+    }
 
-	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return;
-	}
+    // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
 
-	// Check the user's permissions.
-	if ( isset( $_POST['post_type'] ) && 'job_listing' == $_POST['post_type'] ) {
+    // Check the user's permissions.
+    if ( isset( $_POST['post_type'] ) && 'job_listing' == $_POST['post_type'] ) {
 
-		if ( ! current_user_can( 'edit_pages', $post_id ) ) {
-			return;
-		}
+        if ( ! current_user_can( 'edit_pages', $post_id ) ) {
+            return;
+        }
 
-	} else {
+    } else {
 
-		if ( ! current_user_can( 'edit_posts', $post_id ) ) {
-			return;
-		}
-	}
+        if ( ! current_user_can( 'edit_posts', $post_id ) ) {
+            return;
+        }
+    }
 
-	/* OK, it's safe for us to save the data now. */
+    /* OK, it's safe for us to save the data now. */
 
-	// Make sure that it is set.
-	if ( ! isset( $_POST['wpjmcq_chosen_form'] ) ) {
-		return;
-	}
+    // Make sure that it is set.
+    if ( ! isset( $_POST['wpjmcq_chosen_form'] ) ) {
+        return;
+    }
 
-	// Sanitize user input.
-	$my_data = sanitize_text_field( $_POST['wpjmcq_chosen_form'] );
+    // Sanitize user input.
+    $my_data = sanitize_text_field( $_POST['wpjmcq_chosen_form'] );
 
-	// Update the meta field in the database.
-	update_post_meta( $post_id, '_wpjmcq_chosen_form', $my_data );
+    // Update the meta field in the database.
+    update_post_meta( $post_id, '_wpjmcq_chosen_form', $my_data );
 }
 add_action( 'save_post', 'wpjmcq_save_meta_box_data' );

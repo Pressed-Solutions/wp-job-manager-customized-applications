@@ -34,21 +34,21 @@ function wpjmcq_custom_submission( $post ) {
         // test if this is one of the custom fields or not; if not, ignore
         if ( strpos( $this_key, 'field' ) !== false ) {
             global $wpdb;
-            
+
             // get names of fields
             $results_query = "SELECT id, data FROM " . $wpdb->prefix . "ninja_forms_fields WHERE id = " . ltrim( $this_key, '_field_' );
             $key_array = $wpdb->get_results( $results_query );
             $key_id = $key_array[0]->id;
             $key_label_array = unserialize( $key_array[0]->data );
             $key_label = $key_label_array['label'];
-            
+
             // get data for this field
             $key_data = get_post_meta( ( $post->ID - 1 ), $this_key, true );
-            
+
             // output data
             echo '<p><strong>' . $key_label . '</strong></p>';
             echo '<p>' . $key_data . '</p>';
         }
     }
-    
+
 }
